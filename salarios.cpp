@@ -65,7 +65,7 @@ void Salarios::calcular()
     // Calcular salarios
     if (m_contolador->calcular()) {
         // Muestra los resultados
-        ui->outCalculos->appendPlainText(m_contolador->getDatos());
+        ui->outCalculos->appendPlainText(m_contolador->Datos());
     } else {
         QMessageBox::critical(
                     this,
@@ -90,8 +90,23 @@ void Salarios::on_actionSalir_triggered()
 {
     this->close();
 }
+// ---------------------------------------------------------
+void Salarios::on_actionAbrir_triggered()
+{
+    if(QFile::exists(QDir::home().absolutePath() + "/salarios.txt")){
+        QString salarios = QFileDialog::getSaveFileName(this,
+                                                       "Guardar calculos de salarios",
+                                                       QDir::home().absolutePath() + "/salarios.txt",
+                                                       "Archivos de texto (*.txt)");
+        QFile archivo(salarios);
+        if(archivo.open(QFile::WriteOnly | QFile::Truncate)){
 
-
+        }
+        ui->outCalculos->deleteLater();
+        ui->outCalculos->appendPlainText(QDir::home().absolutePath() + "/salarios.txt");
+    }
+}
+//----------------------------------------------------------
 void Salarios::on_actionGuardar_triggered()
 {
     // Abrir un cuadro de diálogo para seleccionar el path y archivo a guardar
@@ -129,7 +144,7 @@ void Salarios::on_actionAcerca_de_triggered()
     // Enviar datos a la otra ventana
     dialog->setVersion(VERSION);
     // Mostrar la venta en modo MODAL
-    dialog->exec();
+    dialog->exec(); //Abre una ventana con la cual no podemos hacer nada más hasta cerrarla
     // Luego de cerrar la ventana, se acceden a los datos de la misma
     qDebug() << dialog->valor();
 

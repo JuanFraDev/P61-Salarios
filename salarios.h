@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include <QDebug>
-#include <QMessageBox>
-#include <QFileDialog>
+#include <QMessageBox> //Para imprimir alertas
+#include <QFileDialog> //Para guardar archivos
 
 #include "obrero.h"
 #include "controlador.h"
@@ -32,6 +32,8 @@ private slots:
     void on_actionCalcular_triggered();
 
     void on_actionSalir_triggered();
+
+    void on_actionAbrir_triggered();
 
     void on_actionGuardar_triggered();
 

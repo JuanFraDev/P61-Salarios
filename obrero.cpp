@@ -77,11 +77,14 @@ void Obrero::setDescuento(double newDescuento)
 
 QString Obrero::toString()
 {
-    QString str = "";
+    QString str = ""; //Gracias a Qt podemos utilizar Qstring y lo tratamos como una lista, agregando los elementos con append
+                      //Para al final unicamente devolver esta variable de tipo QString que se ha agregado
     str.append("Nombre: " + m_nombre + "\n");
     str.append("Jornada: " + jornada2String() + "\n");
     str.append("Horas: " + QString::number(m_horas) + "\n");
-    str.append("Salario Bruto: $" + QString::number(m_salarioBruto) + "\n");
+    str.append("Salario Bruto: $" + QString::number(m_salarioBruto) + "\n"); //QString::number es como el metodo toString de c++
+                                                                             //clásico sirve para transformar de números a cadenas
+                                                                             //de caracteres
     str.append("Descuento: $" + QString::number(m_descuento) + "\n");
     str.append("Salario Neto: $" + QString::number(m_salarioNeto) + "\n");
     return str;

@@ -19,7 +19,7 @@ public:
     explicit Controlador(QObject *parent = nullptr);
     void setDatos(QString nombre, int horas, TipoJornada jornada);
     bool calcular();
-    QString getDatos();
+    QString Datos();
 signals:
 
 private:
