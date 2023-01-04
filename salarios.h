@@ -9,6 +9,7 @@
 #include "obrero.h"
 #include "controlador.h"
 #include "acerca.h"
+#include "condition.h"
 
 #define VERSION "0.2"
 
